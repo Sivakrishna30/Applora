@@ -1,0 +1,7 @@
+- [ ] Implement robust registration scoring in backend and frontend including supportive document checks and manual entry penalties
+- [ ] Implement conflict detection and highlighting in frontend and backend when manually edited fields mismatch AI-extracted document details
+- [ ] Add option to upload multiple docs at once during registration in OCRScannerModal and ManualAddModal
+- [ ] Add a prompt asking user to "add more documents" or "skip" after the initial registration is retrieved/scanned
+- [ ] Allow users to edit and save details later, recalculating the registration score and verification status
+- [ ] Display Verification Evidence, registration score, and verification status prominently on the appliance detail view
+- [ ] Verify that all functionalities work perfectly together and meet the 100/90 valid badge criteria

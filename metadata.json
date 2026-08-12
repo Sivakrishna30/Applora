@@ -1,0 +1,6 @@
+{
+  "name": "Applora",
+  "description": "AI-Powered Home Asset Platform - Manage, maintain, and protect every home appliance with digital ownership, AI OCR bill scanner, warranty intelligence, diagnostic assistant, and verified service history.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,159 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "User profile information",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "email": { "type": "string" },
+        "phone": { "type": "string" },
+        "isLoggedIn": { "type": "boolean" },
+        "memberSince": { "type": "string" }
+      },
+      "required": ["id", "name", "email"]
+    },
+    "HomeProperty": {
+      "title": "HomeProperty",
+      "description": "Home property container",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "name": { "type": "string" },
+        "address": { "type": "string" },
+        "type": { "type": "string" },
+        "isPrimary": { "type": "boolean" }
+      },
+      "required": ["id", "name", "address"]
+    },
+    "Appliance": {
+      "title": "Appliance",
+      "description": "Registered home appliance",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "homeId": { "type": "string" },
+        "userId": { "type": "string" },
+        "name": { "type": "string" },
+        "brand": { "type": "string" },
+        "modelNumber": { "type": "string" },
+        "serialNumber": { "type": "string" },
+        "category": { "type": "string" },
+        "room": { "type": "string" },
+        "purchaseDate": { "type": "string" },
+        "purchasePrice": { "type": "number" },
+        "dealerName": { "type": "string" },
+        "status": { "type": "string" },
+        "healthScore": { "type": "number" }
+      },
+      "required": ["id", "homeId", "name", "brand", "modelNumber"]
+    },
+    "Warranty": {
+      "title": "Warranty",
+      "description": "Appliance warranty coverage details",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "applianceId": { "type": "string" },
+        "startDate": { "type": "string" },
+        "durationMonths": { "type": "number" },
+        "coverageType": { "type": "string" },
+        "summaryTerms": { "type": "string" },
+        "status": { "type": "string" }
+      },
+      "required": ["id", "applianceId", "startDate", "durationMonths"]
+    },
+    "Document": {
+      "title": "Document",
+      "description": "Appliance document metadata",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "applianceId": { "type": "string" },
+        "title": { "type": "string" },
+        "type": { "type": "string" },
+        "uploadDate": { "type": "string" },
+        "fileUrl": { "type": "string" }
+      },
+      "required": ["id", "title", "type"]
+    },
+    "ServiceRecord": {
+      "title": "ServiceRecord",
+      "description": "Appliance service history log",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "applianceId": { "type": "string" },
+        "date": { "type": "string" },
+        "type": { "type": "string" },
+        "technicianName": { "type": "string" },
+        "cost": { "type": "number" },
+        "notes": { "type": "string" }
+      },
+      "required": ["id", "applianceId", "date", "type"]
+    },
+    "Complaint": {
+      "title": "Complaint",
+      "description": "Service diagnostic complaint ticket",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "applianceId": { "type": "string" },
+        "applianceName": { "type": "string" },
+        "issueTitle": { "type": "string" },
+        "status": { "type": "string" },
+        "createdDate": { "type": "string" }
+      },
+      "required": ["id", "applianceId", "issueTitle"]
+    },
+    "MarketplaceListing": {
+      "title": "MarketplaceListing",
+      "description": "Resale marketplace listing",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "askingPrice": { "type": "number" },
+        "sellerName": { "type": "number" },
+        "condition": { "type": "string font" },
+        "status": { "type": "string" }
+      },
+      "required": ["id", "askingPrice"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": { "$ref": "#/entities/UserProfile" },
+      "description": "Users collection"
+    },
+    "/homes/{homeId}": {
+      "schema": { "$ref": "#/entities/HomeProperty" },
+      "description": "Homes collection"
+    },
+    "/appliances/{applianceId}": {
+      "schema": { "$ref": "#/entities/Appliance" },
+      "description": "Appliances collection"
+    },
+    "/warranties/{warrantyId}": {
+      "schema": { "$ref": "#/entities/Warranty" },
+      "description": "Warranties collection"
+    },
+    "/documents/{documentId}": {
+      "schema": { "$ref": "#/entities/Document" },
+      "description": "Documents collection"
+    },
+    "/serviceRecords/{serviceId}": {
+      "schema": { "$ref": "#/entities/ServiceRecord" },
+      "description": "Service records collection"
+    },
+    "/complaints/{complaintId}": {
+      "schema": { "$ref": "#/entities/Complaint" },
+      "description": "Complaints collection"
+    },
+    "/marketplace/{listingId}": {
+      "schema": { "$ref": "#/entities/MarketplaceListing" },
+      "description": "Marketplace listings collection"
+    }
+  }
+}
